@@ -1,0 +1,13 @@
+model,precision,gpu_lat_med_ms,throughput_qps
+ronin_resnet18,fp16,0.495361,2014.31
+ronin_resnet18,int8,0.361328,2759.09
+imunet,fp16,0.275391,3616.48
+imunet,int8,0.299805,3323.61
+mobilenetv2,fp16,0.355713,2802.71
+mobilenetv2,int8,0.445068,2242.02
+mnasnet,fp16,0.555176,1798.21
+mnasnet,int8,0.491577,2029.89
+efficientnet_b0,fp16,0.730835,1366.37
+efficientnet_b0,int8,0.609619,1637.43
+tinyodom,fp16,0.358154,2784.34
+tinyodom,int8,0.443359,2251.02

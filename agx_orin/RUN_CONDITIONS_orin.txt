@@ -1,0 +1,34 @@
+Device: NVIDIA Jetson AGX Orin Developer Kit (SoC tegra234, GPU sm_87)
+JetPack/L4T: /etc/nv_tegra_release is a non-standard debug build ("R00 (debug)");
+             CUDA userspace is sbsa-linux 12.6/13.0/13.3, default cuda->13.3.
+torch: 2.13.0+cu130 (aarch64). Runs on sm_87 via PTX-JIT (cosmetic "not built for CC 8.7" warning). cuda_available=True, device "Orin".
+  Fix applied: system lacked libnvJitLink.so.12 (needed by torch's libcusparse.so.12);
+  installed pip nvidia-nvjitlink-cu12 and exported LD_LIBRARY_PATH to it.
+numpy 2.4.6 (pinned <2.5 for numba), llvmlite 0.48, numba 0.66.
+nvpmodel: MODE 0 = MAXN.   jetson_clocks: ON (GPU locked cur=min=max=1300.5 MHz).
+Power: whole-board via tegrastats, rail VIN_SYS_5V0 (power_boundary=board).
+  NOTE: fixed a broken PowerSampler in scripts/profile_device.py (original never
+  captured any samples: check_output on a non-terminating tegrastats always timed out;
+  and it looked for VDD_IN/POM_* rails absent on this board). Telemetry is live but
+  weakly responsive to these tiny launch-bound models -> power sits near ~4W board
+  baseline; latency/throughput are the reliable efficiency metrics, energy is
+  baseline-dominated (upper-ish bound).
+profile_orin_30W_unlocked.csv = earlier run BEFORE step 3 (30W, DVFS) kept for reference.
+
+=== STEP 6 INT8/TensorRT (completed with adaptation) ===
+TensorRT: 11.1.0.106+cuda13.3 (apt, sbsa repo). trtexec at /usr/bin/trtexec.
+export_trt.py did NOT run on TRT 11.1: it uses IInt8EntropyCalibrator2 + BuilderFlag.FP16/INT8,
+ALL removed in TRT 11 (strongly-typed-only; trtexec --fp16/--int8/--calib also gone).
+Adapted pipeline (scripts/export_trt_trt11.py): precision now lives in the ONNX graph:
+  FP16 = float16 ONNX (onnxconverter_common); INT8 = QDQ ONNX from onnxruntime static
+  quantization over the REAL calib windows, forced symmetric (TRT needs zero_point==0)
+  and QuantizeBias=False (TRT rejects Int32 bias QDQ). TRT then builds strongly-typed.
+INT8 accuracy measured with scripts/eval_trt_accuracy.py (torch-tensor TRT runtime, no
+pycuda), reusing eval_accuracy's recon_traj+compute_ate_rte over the 53 sequences.
+Engines: engines/orin/{model}_{fp16,int8}.plan (6 CNNs x 2). Latency via trtexec.
+FINDINGS: FP16 ATE within +-0.2% of FP32 (device-independent). INT8 ATE +35%..+82% WORSE
+than FP32 on every model (measured, NOT assumed) -> INT8 PTQ is not accuracy-free for this
+velocity-regression task. TRT engines ~20-40x faster than the PyTorch-eager profile;
+INT8-vs-FP16 latency is mixed (Q/DQ overhead offsets gains on the smallest models).
+NOTE: INT8 calibration = ORT MinMax symmetric PTQ; entropy/percentile calibration or QAT
+might recover some accuracy but was not pursued.
