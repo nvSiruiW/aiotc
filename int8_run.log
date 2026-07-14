@@ -1,0 +1,60 @@
+== calibration sets from real test IMU windows ==
+wrote calib/imu_calib_200.npy  shape=(300, 6, 200)
+wrote calib/imu_calib_400.npy  shape=(300, 6, 400)
+== ONNX export (trained weights) + TensorRT FP16/INT8 engines ==
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/ronin_resnet18.onnx  input=(1,6,200)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+calib: loaded 300 real windows from calib/imu_calib_200.npy
+  [fp16] OK -> engines/orin_nano/ronin_resnet18_fp16.plan  (9332 KB)
+  [int8] OK -> engines/orin_nano/ronin_resnet18_int8.plan  (5090 KB)
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/imunet.onnx  input=(1,6,200)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+calib: loaded 300 real windows from calib/imu_calib_200.npy
+  [fp16] OK -> engines/orin_nano/imunet_fp16.plan  (7666 KB)
+  [int8] OK -> engines/orin_nano/imunet_int8.plan  (4814 KB)
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/mobilenetv2.onnx  input=(1,6,200)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+calib: loaded 300 real windows from calib/imu_calib_200.npy
+  [fp16] OK -> engines/orin_nano/mobilenetv2_fp16.plan  (4666 KB)
+  [int8] OK -> engines/orin_nano/mobilenetv2_int8.plan  (2921 KB)
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/mnasnet.onnx  input=(1,6,200)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+calib: loaded 300 real windows from calib/imu_calib_200.npy
+  [fp16] OK -> engines/orin_nano/mnasnet_fp16.plan  (6245 KB)
+  [int8] OK -> engines/orin_nano/mnasnet_int8.plan  (3759 KB)
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/efficientnet_b0.onnx  input=(1,6,200)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+calib: loaded 300 real windows from calib/imu_calib_200.npy
+  [fp16] OK -> engines/orin_nano/efficientnet_b0_fp16.plan  (7579 KB)
+  [int8] OK -> engines/orin_nano/efficientnet_b0_int8.plan  (4702 KB)
+/home/nvidia/aiotc_jetson/scripts/export_onnx.py:25: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(net, x, a.out, input_names=["imu"], output_names=["vel"],
+wrote onnx/tinyodom.onnx  input=(1,6,400)  (onnxruntime not present; skipped numeric check)
+/home/nvidia/aiotc_jetson/scripts/export_trt.py:59: DeprecationWarning: Use Deprecated in TensorRT 10.1. Superseded by explicit quantization. instead.
+  config.int8_calibrator = NpyCalibrator(calib_arr, input_name, cache_path)
+[07/14/2026-10:05:58] [TRT] [W] Missing scale and zero-point for tensor ONNXTRT_castHelper_588_output, expect fall back to non-int8 implementation for any layer consuming or producing given tensor
+calib: loaded 300 real windows from calib/imu_calib_400.npy
+  [fp16] OK -> engines/orin_nano/tinyodom_fp16.plan  (741 KB)
+  [int8] OK -> engines/orin_nano/tinyodom_int8.plan  (1057 KB)
+
+Engines (if built) are in engines/orin_nano/*.plan
+Benchmark them with trtexec, e.g.:
+   /usr/src/tensorrt/bin/trtexec --loadEngine=engines/orin_nano/ronin_resnet18_int8.plan --iterations=500
+For INT8 ATE, run each engine over the 53 test sequences with the same
+velocity-integration reconstruction as scripts/eval_accuracy.py (TRT-runtime
+wrapper is JetPack-specific; see JETSON_MANUAL.md step 5).

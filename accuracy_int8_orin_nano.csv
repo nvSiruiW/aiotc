@@ -1,0 +1,13 @@
+model,precision,ate_m,rte_m,n_seq
+ronin_resnet18,trt_int8,0.9485,1.1485,53
+ronin_resnet18,trt_fp16,0.9033,1.1083,53
+imunet,trt_int8,1.0494,1.1284,53
+imunet,trt_fp16,0.9691,1.0653,53
+mobilenetv2,trt_int8,1.5854,1.706,53
+mobilenetv2,trt_fp16,0.9354,1.0715,53
+mnasnet,trt_int8,2.1914,2.746,53
+mnasnet,trt_fp16,0.9039,1.1043,53
+efficientnet_b0,trt_int8,0.9876,1.1982,53
+efficientnet_b0,trt_fp16,0.9819,1.195,53
+tinyodom,trt_int8,1.2055,1.4068,53
+tinyodom,trt_fp16,1.2053,1.4216,53

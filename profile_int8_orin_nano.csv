@@ -1,0 +1,13 @@
+device,runtime,model,precision,trtexec_lat_med_ms,trtexec_throughput_qps
+orin_nano,tensorrt,ronin_resnet18,fp16,0.693268,1472.98
+orin_nano,tensorrt,ronin_resnet18,int8,0.510254,2014.24
+orin_nano,tensorrt,imunet,fp16,0.847778,1199.77
+orin_nano,tensorrt,imunet,int8,0.744095,1365.69
+orin_nano,tensorrt,mobilenetv2,fp16,0.833008,1225.22
+orin_nano,tensorrt,mobilenetv2,int8,0.742775,1373.55
+orin_nano,tensorrt,mnasnet,fp16,0.915527,1110.77
+orin_nano,tensorrt,mnasnet,int8,0.770508,1321.51
+orin_nano,tensorrt,efficientnet_b0,fp16,1.52686,661.805
+orin_nano,tensorrt,efficientnet_b0,int8,1.42737,708.108
+orin_nano,tensorrt,tinyodom,fp16,0.740479,1377.9
+orin_nano,tensorrt,tinyodom,int8,0.79895,1274.64

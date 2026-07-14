@@ -1,0 +1,33 @@
+  [ronin_resnet18/fp32] ATE=0.902m RTE=1.109m (53 seqs)
+  [ronin_resnet18/fp16] ATE=0.901m RTE=1.109m (53 seqs)
+  [ronin_resnet18/bf16] ATE=0.914m RTE=1.122m (53 seqs)
+  [imunet/fp32] ATE=0.970m RTE=1.065m (53 seqs)
+  [imunet/fp16] ATE=0.971m RTE=1.066m (53 seqs)
+  [imunet/bf16] ATE=0.959m RTE=1.049m (53 seqs)
+  [mobilenetv2/fp32] ATE=0.934m RTE=1.069m (53 seqs)
+  [mobilenetv2/fp16] ATE=0.933m RTE=1.066m (53 seqs)
+  [mobilenetv2/bf16] ATE=0.942m RTE=1.079m (53 seqs)
+  [mnasnet/fp32] ATE=0.904m RTE=1.105m (53 seqs)
+  [mnasnet/fp16] ATE=0.903m RTE=1.104m (53 seqs)
+  [mnasnet/bf16] ATE=0.912m RTE=1.129m (53 seqs)
+  [efficientnet_b0/fp32] ATE=0.981m RTE=1.195m (53 seqs)
+  [efficientnet_b0/fp16] ATE=0.983m RTE=1.200m (53 seqs)
+  [efficientnet_b0/bf16] ATE=1.020m RTE=1.258m (53 seqs)
+  [tinyodom/fp32] ATE=1.207m RTE=1.426m (53 seqs)
+  [tinyodom/fp16] ATE=1.207m RTE=1.424m (53 seqs)
+  [tinyodom/bf16] ATE=1.206m RTE=1.430m (53 seqs)
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+  [ronin_lstm/fp32] ATE=1.249m RTE=1.374m (53 seqs)
+  [ronin_lstm/fp16] ATE=1.250m RTE=1.375m (53 seqs)
+  [ronin_lstm/bf16] ATE=1.270m RTE=1.402m (53 seqs)
+  WeightNorm.apply(module, name, dim)
+  [ronin_tcn/fp32] ATE=1.210m RTE=1.341m (53 seqs)
+  [ronin_tcn/fp16] ATE=1.211m RTE=1.343m (53 seqs)
+  [ronin_tcn/bf16] ATE=1.233m RTE=1.372m (53 seqs)
+wrote results/accuracy_orin_nano.csv (24 rows)
+
+WROTE results/accuracy_orin_nano.csv
+Compare against results_reference/accuracy_blackwell.csv (should match within FP rounding).
