@@ -1,0 +1,7 @@
+model,precision,gpu_lat_med_ms,throughput_qps,status
+ronin_resnet18,int8,0.569824,1737.48,ok
+imunet,int8,0.75,1323.95,ok
+mobilenetv2,int8,0.812988,1222.47,ok
+mnasnet,int8,0.852539,1165.87,ok
+efficientnet_b0,int8,1.15332,863.075,ok
+tinyodom,int8,1.01147,983.694,ok
