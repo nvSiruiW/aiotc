@@ -16,7 +16,7 @@ OUT=trt_int8_latency_$DEV.csv
 echo "model,precision,gpu_lat_med_ms,throughput_qps,status" > "$OUT"
 mkdir -p engines
 parse(){ echo "$1" | grep "GPU Compute Time" | grep -oE "median = [0-9.]+" | grep -oE "[0-9.]+" | head -1; }
-thrpt(){ echo "$1" | grep -iE "Throughput:" | grep -oE "[0-9.]+" | head -1; }
+thrpt(){ echo "$1" | grep -iE "Throughput:" | grep -oE "[0-9.]+ qps" | grep -oE "[0-9.]+" | head -1; }  # anchor on 'N qps' (line has a [MM/DD/YYYY] date whose digits would otherwise match first)
 
 for m in ronin_resnet18 imunet mobilenetv2 mnasnet efficientnet_b0 tinyodom; do
   onnx=onnx/${m}_int8.onnx; eng=engines/${m}_int8.plan
