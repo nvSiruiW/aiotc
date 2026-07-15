@@ -46,6 +46,19 @@ def sample_active(net, x, backend, dur):
             dt=time.time()-t0
     return ps.median(), n, dt
 
+def _tegrastats_line():
+    """One tegrastats line. `timeout` kills tegrastats and exits 124, so check_output
+    raises CalledProcessError — its .output still holds the captured line(s)."""
+    try:
+        out=subprocess.check_output(["timeout","2","tegrastats"],stderr=subprocess.DEVNULL)
+    except subprocess.CalledProcessError as e:
+        out=e.output or b""
+    except Exception:
+        return ""
+    txt=out.decode() if isinstance(out,(bytes,bytearray)) else (out or "")
+    lines=[l for l in txt.splitlines() if l.strip()]
+    return lines[-1] if lines else ""
+
 def board_static(cuda):
     """Jetson provenance: nvpmodel power mode + tegrastats GPU freq/temperature."""
     d=dict(sm_MHz="?", sm_max_MHz="?", temp_C="?", power_limit_W="board", persistence="jetson")
@@ -56,7 +69,7 @@ def board_static(cuda):
     except Exception: pass
     try:
         import re
-        s=subprocess.check_output(["timeout","2","tegrastats"]).decode().splitlines()[-1]
+        s=_tegrastats_line()
         mg=re.search(r"GR3D_FREQ \d+%@?(\d+)?", s); mt=re.search(r"(gpu|GPU)@([\d.]+)C", s)
         if mg and mg.group(1): d["sm_MHz"]=mg.group(1)
         if mt: d["temp_C"]=mt.group(2)
@@ -69,7 +82,7 @@ def read_temp(backend, cuda="0"):
             return float(subprocess.check_output(["nvidia-smi","--query-gpu=temperature.gpu",
                 "--format=csv,noheader,nounits","-i",str(cuda)]).decode().strip())
         import re
-        s=subprocess.check_output(["timeout","2","tegrastats"]).decode().splitlines()[-1]
+        s=_tegrastats_line()
         m=re.search(r"[gG][pP][uU]@([\d.]+)C", s); return float(m.group(1)) if m else float("nan")
     except Exception: return float("nan")
 
