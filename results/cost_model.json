@@ -1,0 +1,26 @@
+{
+  "blackwell": {
+    "featset": "K only",
+    "r2": 0.29,
+    "mape": 28.0,
+    "params_mape": 47,
+    "launch_share": 52,
+    "n": 9
+  },
+  "agx_orin": {
+    "featset": "K only",
+    "r2": 0.31,
+    "mape": 28.8,
+    "params_mape": 45,
+    "launch_share": 51,
+    "n": 9
+  },
+  "orin_nano": {
+    "featset": "K+W+F",
+    "r2": 0.91,
+    "mape": 25.3,
+    "params_mape": 41,
+    "launch_share": 44,
+    "n": 9
+  }
+}

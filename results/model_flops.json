@@ -1,0 +1,52 @@
+{
+  "ronin_resnet18": {
+    "params_M": 4.635,
+    "flops_M": 75.94,
+    "k_leaf": 59
+  },
+  "ronin_tcn": {
+    "params_M": 0.54,
+    "flops_M": 231.82,
+    "k_leaf": 62
+  },
+  "ronin_lstm": {
+    "params_M": 0.206,
+    "flops_M": 0.41,
+    "k_leaf": 600
+  },
+  "imunet": {
+    "params_M": 3.662,
+    "flops_M": 36.87,
+    "k_leaf": 79
+  },
+  "mobilenetv2": {
+    "params_M": 2.183,
+    "flops_M": 39.12,
+    "k_leaf": 140
+  },
+  "mnasnet": {
+    "params_M": 2.979,
+    "flops_M": 48.79,
+    "k_leaf": 142
+  },
+  "efficientnet_b0": {
+    "params_M": 3.232,
+    "flops_M": 55.64,
+    "k_leaf": 104
+  },
+  "tinyodom": {
+    "params_M": 0.11,
+    "flops_M": 131.04,
+    "k_leaf": 21
+  },
+  "tlio_resnet": {
+    "params_M": 5.425,
+    "flops_M": 78.3,
+    "k_leaf": 64
+  },
+  "eqnio": {
+    "params_M": 5.23,
+    "flops_M": 410.63,
+    "k_leaf": 83
+  }
+}

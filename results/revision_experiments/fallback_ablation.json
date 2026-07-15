@@ -1,0 +1,132 @@
+{
+  "latency_table": [
+    {
+      "device": "blackwell",
+      "precision": "fp16",
+      "lat_med_ms": 1.4265,
+      "lat_p95_ms": 1.4391,
+      "dynamic_energy_mJ": 19.88,
+      "kernel_count": 10.0,
+      "kernel_count_source": "Blackwell profiler",
+      "bf16_fp16_lat_ratio": 3.08,
+      "bf16_fp16_kernel_ratio": 124.1
+    },
+    {
+      "device": "blackwell",
+      "precision": "bf16",
+      "lat_med_ms": 4.3963,
+      "lat_p95_ms": 4.4342,
+      "dynamic_energy_mJ": 68.06,
+      "kernel_count": 1241.0,
+      "kernel_count_source": "Blackwell profiler",
+      "bf16_fp16_lat_ratio": 3.08,
+      "bf16_fp16_kernel_ratio": 124.1
+    },
+    {
+      "device": "agx_orin",
+      "precision": "fp16",
+      "lat_med_ms": 1.8101,
+      "lat_p95_ms": 1.8325,
+      "dynamic_energy_mJ": 7.08,
+      "kernel_count": 10.0,
+      "kernel_count_source": "inferred (same cuDNN path)",
+      "bf16_fp16_lat_ratio": 26.6,
+      "bf16_fp16_kernel_ratio": 124.1
+    },
+    {
+      "device": "agx_orin",
+      "precision": "bf16",
+      "lat_med_ms": 48.1515,
+      "lat_p95_ms": 48.5046,
+      "dynamic_energy_mJ": 183.02,
+      "kernel_count": 1241.0,
+      "kernel_count_source": "inferred (same cuDNN path)",
+      "bf16_fp16_lat_ratio": 26.6,
+      "bf16_fp16_kernel_ratio": 124.1
+    },
+    {
+      "device": "orin_nano",
+      "precision": "fp16",
+      "lat_med_ms": 3.2304,
+      "lat_p95_ms": 3.2573,
+      "dynamic_energy_mJ": 3.9,
+      "kernel_count": 10.0,
+      "kernel_count_source": "inferred (same cuDNN path)",
+      "bf16_fp16_lat_ratio": 29.56,
+      "bf16_fp16_kernel_ratio": 124.1
+    },
+    {
+      "device": "orin_nano",
+      "precision": "bf16",
+      "lat_med_ms": 95.4978,
+      "lat_p95_ms": 96.5173,
+      "dynamic_energy_mJ": 96.45,
+      "kernel_count": 1241.0,
+      "kernel_count_source": "inferred (same cuDNN path)",
+      "bf16_fp16_lat_ratio": 29.56,
+      "bf16_fp16_kernel_ratio": 124.1
+    }
+  ],
+  "prediction_table": [
+    {
+      "device": "blackwell",
+      "precision": "fp16",
+      "true_lat_ms": 1.4265,
+      "pred_no_ifallback_ms": -0.035,
+      "pred_with_ifallback_ms": -0.035,
+      "APE_no_ifallback": 102.5,
+      "APE_with_ifallback": 102.5,
+      "APE_improvement": 0.0
+    },
+    {
+      "device": "blackwell",
+      "precision": "bf16",
+      "true_lat_ms": 4.3963,
+      "pred_no_ifallback_ms": -0.036,
+      "pred_with_ifallback_ms": 14.879,
+      "APE_no_ifallback": 100.8,
+      "APE_with_ifallback": 238.4,
+      "APE_improvement": -137.6
+    },
+    {
+      "device": "agx_orin",
+      "precision": "fp16",
+      "true_lat_ms": 1.8101,
+      "pred_no_ifallback_ms": 1.565,
+      "pred_with_ifallback_ms": 1.565,
+      "APE_no_ifallback": 13.5,
+      "APE_with_ifallback": 13.5,
+      "APE_improvement": 0.0
+    },
+    {
+      "device": "agx_orin",
+      "precision": "bf16",
+      "true_lat_ms": 48.1515,
+      "pred_no_ifallback_ms": 1.555,
+      "pred_with_ifallback_ms": 125.679,
+      "APE_no_ifallback": 96.8,
+      "APE_with_ifallback": 161.0,
+      "APE_improvement": -64.2
+    },
+    {
+      "device": "orin_nano",
+      "precision": "fp16",
+      "true_lat_ms": 3.2304,
+      "pred_no_ifallback_ms": 2.365,
+      "pred_with_ifallback_ms": 2.365,
+      "APE_no_ifallback": 26.8,
+      "APE_with_ifallback": 26.8,
+      "APE_improvement": 0.0
+    },
+    {
+      "device": "orin_nano",
+      "precision": "bf16",
+      "true_lat_ms": 95.4978,
+      "pred_no_ifallback_ms": 2.392,
+      "pred_with_ifallback_ms": 88.471,
+      "APE_no_ifallback": 97.5,
+      "APE_with_ifallback": 7.4,
+      "APE_improvement": 90.1
+    }
+  ]
+}

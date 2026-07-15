@@ -1,0 +1,21 @@
+{
+  "per_family": {
+    "CNN": 45.0,
+    "TCN": 52.0,
+    "TCN-NAS": 15.0,
+    "equiv": 96.0,
+    "mobile": 38.0
+  },
+  "overall": 45.0,
+  "fewshot": {
+    "mobile": {
+      "0": 38.0,
+      "1": 17.0
+    },
+    "CNN": {
+      "0": 45.0,
+      "1": 27.0
+    }
+  },
+  "worst_family": "equiv"
+}

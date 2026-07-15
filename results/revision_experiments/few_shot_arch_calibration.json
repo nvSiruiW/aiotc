@@ -1,0 +1,225 @@
+{
+  "detailed": [
+    {
+      "family": "CNN",
+      "n_family_members": 2,
+      "k_shot": 0,
+      "held_model": "ronin_resnet18",
+      "calib_models": "none",
+      "MAPE": 28.7,
+      "Median_APE": 30.7
+    },
+    {
+      "family": "CNN",
+      "n_family_members": 2,
+      "k_shot": 0,
+      "held_model": "tlio_resnet",
+      "calib_models": "none",
+      "MAPE": 26.0,
+      "Median_APE": 24.6
+    },
+    {
+      "family": "CNN",
+      "n_family_members": 2,
+      "k_shot": 1,
+      "held_model": "ronin_resnet18",
+      "calib_models": "tlio_resnet",
+      "MAPE": 16.3,
+      "Median_APE": 18.7
+    },
+    {
+      "family": "CNN",
+      "n_family_members": 2,
+      "k_shot": 1,
+      "held_model": "tlio_resnet",
+      "calib_models": "ronin_resnet18",
+      "MAPE": 13.9,
+      "Median_APE": 14.5
+    },
+    {
+      "family": "TCN",
+      "n_family_members": 1,
+      "k_shot": 0,
+      "held_model": "ronin_tcn",
+      "calib_models": "none",
+      "MAPE": 14.0,
+      "Median_APE": 8.7
+    },
+    {
+      "family": "TCN-NAS",
+      "n_family_members": 1,
+      "k_shot": 0,
+      "held_model": "tinyodom",
+      "calib_models": "none",
+      "MAPE": 53.3,
+      "Median_APE": 49.2
+    },
+    {
+      "family": "equiv",
+      "n_family_members": 1,
+      "k_shot": 0,
+      "held_model": "eqnio",
+      "calib_models": "none",
+      "MAPE": 47.4,
+      "Median_APE": 49.5
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 0,
+      "held_model": "imunet",
+      "calib_models": "none",
+      "MAPE": 17.2,
+      "Median_APE": 17.0
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 0,
+      "held_model": "mobilenetv2",
+      "calib_models": "none",
+      "MAPE": 19.6,
+      "Median_APE": 19.2
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 0,
+      "held_model": "mnasnet",
+      "calib_models": "none",
+      "MAPE": 23.9,
+      "Median_APE": 24.0
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 0,
+      "held_model": "efficientnet_b0",
+      "calib_models": "none",
+      "MAPE": 16.0,
+      "Median_APE": 17.7
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 1,
+      "held_model": "imunet",
+      "calib_models": "mobilenetv2",
+      "MAPE": 13.3,
+      "Median_APE": 13.2
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 1,
+      "held_model": "mobilenetv2",
+      "calib_models": "imunet",
+      "MAPE": 17.4,
+      "Median_APE": 17.0
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 1,
+      "held_model": "mnasnet",
+      "calib_models": "imunet",
+      "MAPE": 21.4,
+      "Median_APE": 21.6
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 1,
+      "held_model": "efficientnet_b0",
+      "calib_models": "imunet",
+      "MAPE": 13.8,
+      "Median_APE": 15.5
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 2,
+      "held_model": "imunet",
+      "calib_models": "mobilenetv2,mnasnet",
+      "MAPE": 9.4,
+      "Median_APE": 9.2
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 2,
+      "held_model": "mobilenetv2",
+      "calib_models": "imunet,mnasnet",
+      "MAPE": 14.3,
+      "Median_APE": 13.9
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 2,
+      "held_model": "mnasnet",
+      "calib_models": "imunet,mobilenetv2",
+      "MAPE": 19.0,
+      "Median_APE": 19.2
+    },
+    {
+      "family": "mobile",
+      "n_family_members": 4,
+      "k_shot": 2,
+      "held_model": "efficientnet_b0",
+      "calib_models": "imunet,mobilenetv2",
+      "MAPE": 11.4,
+      "Median_APE": 12.6
+    }
+  ],
+  "summary": [
+    {
+      "family": "CNN",
+      "k_shot": 0,
+      "mean_MAPE": 27.4,
+      "n_test_models": 2
+    },
+    {
+      "family": "CNN",
+      "k_shot": 1,
+      "mean_MAPE": 15.1,
+      "n_test_models": 2
+    },
+    {
+      "family": "TCN",
+      "k_shot": 0,
+      "mean_MAPE": 14.0,
+      "n_test_models": 1
+    },
+    {
+      "family": "TCN-NAS",
+      "k_shot": 0,
+      "mean_MAPE": 53.3,
+      "n_test_models": 1
+    },
+    {
+      "family": "equiv",
+      "k_shot": 0,
+      "mean_MAPE": 47.4,
+      "n_test_models": 1
+    },
+    {
+      "family": "mobile",
+      "k_shot": 0,
+      "mean_MAPE": 19.2,
+      "n_test_models": 4
+    },
+    {
+      "family": "mobile",
+      "k_shot": 1,
+      "mean_MAPE": 16.5,
+      "n_test_models": 4
+    },
+    {
+      "family": "mobile",
+      "k_shot": 2,
+      "mean_MAPE": 13.5,
+      "n_test_models": 4
+    }
+  ]
+}

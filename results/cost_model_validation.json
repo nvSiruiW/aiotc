@@ -1,0 +1,95 @@
+{
+  "LOMO": {
+    "B1 params": {
+      "MAPE": 44.3,
+      "Median": 27.1,
+      "Max": 108.8
+    },
+    "B2 FLOPs": {
+      "MAPE": 55.8,
+      "Median": 34.8,
+      "Max": 137.9
+    },
+    "B3 par+FLOP": {
+      "MAPE": 60.1,
+      "Median": 59.7,
+      "Max": 119.5
+    },
+    "M4 struct(ours)": {
+      "MAPE": 31.2,
+      "Median": 23.0,
+      "Max": 103.8
+    }
+  },
+  "LOAO": {
+    "B1 params": {
+      "MAPE": 55.0,
+      "Median": 32.7,
+      "Max": 154.5
+    },
+    "B2 FLOPs": {
+      "MAPE": 73.9,
+      "Median": 66.6,
+      "Max": 137.9
+    },
+    "B3 par+FLOP": {
+      "MAPE": 86.4,
+      "Median": 77.3,
+      "Max": 137.3
+    },
+    "M4 struct(ours)": {
+      "MAPE": 45.1,
+      "Median": 45.3,
+      "Max": 103.8
+    }
+  },
+  "LODO": {
+    "B1 params": {
+      "MAPE": 293.3,
+      "Median": 54.8,
+      "Max": 1390.2
+    },
+    "B2 FLOPs": {
+      "MAPE": 301.6,
+      "Median": 56.1,
+      "Max": 1544.5
+    },
+    "B3 par+FLOP": {
+      "MAPE": 290.0,
+      "Median": 56.3,
+      "Max": 1291.2
+    },
+    "M4 struct(ours)": {
+      "MAPE": 266.8,
+      "Median": 53.9,
+      "Max": 955.1
+    },
+    "M5 transfer(1-calib)": {
+      "MAPE": 11.0,
+      "Median": 8.9,
+      "Max": 55.2
+    }
+  },
+  "LOPO": {
+    "B1 params": {
+      "MAPE": 30.6,
+      "Median": 34.3,
+      "Max": 51.8
+    },
+    "B2 FLOPs": {
+      "MAPE": 40.3,
+      "Median": 34.6,
+      "Max": 123.8
+    },
+    "B3 par+FLOP": {
+      "MAPE": 33.7,
+      "Median": 34.9,
+      "Max": 49.8
+    },
+    "M4 struct(ours)": {
+      "MAPE": 13.3,
+      "Median": 10.6,
+      "Max": 37.5
+    }
+  }
+}

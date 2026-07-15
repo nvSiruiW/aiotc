@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Feature ablation for the kernel-aware cost model. MAPE (\%) across four leave-out protocols. Lowest MAPE per column in \textbf{bold}.}
+\label{tab:cost_model_ablation}
+\begin{tabular}{lcccccc}
+\toprule
+Feature Set & LOMO & LOAO & LOPO & LODO & Med.~APE & P95~APE \\
+\midrule
+1\_Params & 69.8 & 77.5 & 39.9 & 273.4 & 46.0 & 221.6 \\
+2\_FLOPs & 80.7 & 87.2 & 51.8 & 285.7 & 41.6 & 181.2 \\
+3\_Params$+$FLOPs & 81.8 & 94.7 & 39.7 & 265.7 & 67.6 & 222.6 \\
+4\_N\_exec & \textbf{35.2} & \textbf{39.1} & \textbf{22.7} & 248.8 & 25.4 & 97.4 \\
+5\_N\_exec$+$B\_eff & 36.0 & 42.1 & \textbf{22.7} & 253.5 & 23.4 & \textbf{96.4} \\
+6\_N\_exec$+$B\_eff$+$F\_eff & 49.0 & 59.3 & 23.3 & \textbf{220.1} & 34.2 & 149.7 \\
+7\_N\_exec$+$B\_eff$+$F\_eff$+$I\_fallback & 36.6 & 56.0 & 23.3 & \textbf{220.1} & \textbf{15.5} & 126.0 \\
+\_fallback\_path\_detail & — & — & — & — & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}

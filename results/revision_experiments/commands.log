@@ -1,0 +1,57 @@
+# AIoTC Revision Experiments - Commands Log
+# Date: 2026-07-15
+# Environment: /localhome/local-siruiw/aiotc_venv/bin/python3
+# Working directory: /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc/
+
+# Step 0: Install scipy in aiotc_venv
+/localhome/local-siruiw/aiotc_venv/bin/pip install scipy
+
+# Step 1: Extract FLOPs for all models (prerequisite for Experiment 1)
+cd /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc && \
+/localhome/local-siruiw/aiotc_venv/bin/python3 -c "
+import sys, json
+sys.path.insert(0, 'scripts'); sys.path.insert(0, 'ronin/source'); sys.path.insert(0, 'IMUNet/RONIN_torch')
+import torch
+from profile_device import MODEL_REGISTRY
+from torch.utils.flop_counter import FlopCounterMode
+MODELS = ['ronin_resnet18','ronin_tcn','ronin_lstm','imunet','mobilenetv2','mnasnet',
+          'efficientnet_b0','tinyodom','tlio_resnet','eqnio']
+out = {}
+for m in MODELS:
+    try:
+        net, shp = MODEL_REGISTRY[m](); net = net.float().eval()
+        T = shp[1] if m == 'ronin_lstm' else 1
+        n_leaf = sum(1 for mo in net.modules() if len(list(mo.children()))==0)
+        params = sum(p.numel() for p in net.parameters())
+        fc = FlopCounterMode(display=False)
+        with torch.no_grad(), fc: net(torch.randn(*shp))
+        F = fc.get_total_flops()
+        out[m] = {'params_M': round(params/1e6,3), 'flops_M': round(F/1e6,2), 'k_leaf': n_leaf*T}
+    except Exception as e: out[m] = None
+json.dump(out, open('results/model_flops.json','w'), indent=2)
+"
+# Output: results/model_flops.json
+
+# Step 2: Experiment 1 - Cost Model Feature Ablation
+cd /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc && \
+/localhome/local-siruiw/aiotc_venv/bin/python3 scripts/run_cost_model_ablation.py \
+    --output results/revision_experiments/cost_model_ablation
+# Outputs: cost_model_ablation.{csv,md,tex,json}
+
+# Step 3: Experiment 2 - Fallback Ablation
+cd /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc && \
+/localhome/local-siruiw/aiotc_venv/bin/python3 scripts/run_fallback_ablation.py \
+    --output results/revision_experiments/fallback_ablation
+# Outputs: fallback_ablation_{latency,prediction}.csv, fallback_ablation.{md,json}
+
+# Step 4: Experiment 3 - Selector Oracle Evaluation
+cd /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc && \
+/localhome/local-siruiw/aiotc_venv/bin/python3 scripts/run_selector_oracle_eval.py \
+    --output results/revision_experiments/selector_oracle_eval
+# Outputs: selector_oracle_eval.{csv,json}, selector_oracle_eval_summary.{csv,md}
+
+# Step 5: Experiment 4 - Few-Shot Architecture Calibration
+cd /localhome/local-siruiw/data/wsr/L40sData_no_rosbag_20260629/aiotc && \
+/localhome/local-siruiw/aiotc_venv/bin/python3 scripts/run_few_shot_calibration.py \
+    --output results/revision_experiments/few_shot_arch_calibration
+# Outputs: few_shot_arch_calibration.{csv,md,json}

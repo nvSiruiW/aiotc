@@ -1,0 +1,5 @@
+feasible_rate,max_ate_regret_m,mean_ate_regret_m,median_ate_regret_m,median_lat_regret_ms,n_feasible,n_scenarios,n_top1_match,n_with_prediction,scope,top1_rate
+1.0,0.0,0.0,0.0,0.0,44,44,44,44,overall,1.0
+1.0,0.0,0.0,0.0,0.0,30,30,30,30,per_device_blackwell,1.0
+1.0,0.0,0.0,0.0,0.0,7,7,7,7,per_device_agx_orin,1.0
+1.0,0.0,0.0,0.0,0.0,7,7,7,7,per_device_orin_nano,1.0
